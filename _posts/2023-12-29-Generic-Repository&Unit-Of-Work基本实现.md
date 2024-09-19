@@ -14,24 +14,23 @@
 [HttpPost]
 public async Task<int> CreateAsync(string name)
 {
-    var order = new Order()
-    {
-        Name = name,
-        CreateDate = DateTime.UtcNow,
-        OrderItems = new List<OrderItem>()
-        {
-            new OrderItem()
-            {
-                ProductId = 1,
-                Amount = 1,
-            }
-        }
-    };
-    order = await _orderRepository.InsertAsync(order, autoSave: true);
-    //throw new Exception("test");
+    var order = new Order()
+    {
+         Name = name,
+        CreateDate = DateTime.UtcNow,
+        OrderItems = new List<OrderItem>()
+        {
+            new OrderItem()
+            {
+                ProductId = 1,
+                Amount = 1,
+            }
+        }
+    };
+    order = await _orderRepository.InsertAsync(order, autoSave: true);
+    //throw new Exception("test");
 
-
-    return order.Id;
+    return order.Id;
 }
 ```
 
